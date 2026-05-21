@@ -1,0 +1,52 @@
+{
+  "name": "npm-run-dev",
+  "displayName": "npm run dev",
+  "description": "Automatically run 'npm run dev' in added folders after opening.",
+  "version": "1.0.0",
+  "readme": "./README.md",
+  "publisher": "AbhishekJunghare",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/abhishek-junghare/auto-npm-run-dev"
+  },
+  "icon": "./icon.png",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "configuration": {
+      "title": "Auto Run Dev Configuration",
+      "properties": {
+        "autoRunDev.allowedFolders": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [],
+          "description": "Folders added to automatically run 'npm run dev'"
+        },
+        "autoRunDev.blockedFolders": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "default": [],
+          "description": "Folders declined to automatically run 'npm run dev'"
+        },
+        "autoRunDev.showTerminalOnStart": {
+          "type": "boolean",
+          "default": false,
+          "description": "Show terminal when 'npm run dev' starts"
+        }
+      }
+    }
+  }
+}
