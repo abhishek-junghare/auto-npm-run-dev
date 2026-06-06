@@ -2,7 +2,7 @@
   "name": "npm-run-dev",
   "displayName": "npm run dev",
   "description": "Automatically run 'npm run dev' in added folders after opening.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "readme": "./README.md",
   "publisher": "AbhishekJunghare",
   "license": "MIT",
@@ -27,11 +27,19 @@
       "properties": {
         "autoRunDev.allowedFolders": {
           "type": "array",
-          "items": {
-            "type": "string"
-          },
+          "description": "Folders allowed to automatically run 'npm run dev' and their URLs",
           "default": [],
-          "description": "Folders added to automatically run 'npm run dev'"
+          "items": {
+            "type": "object",
+            "properties": {
+              "path": {
+                "type": "string"
+              },
+              "url": {
+                "type": "string"
+              }
+            }
+          }
         },
         "autoRunDev.blockedFolders": {
           "type": "array",
@@ -45,6 +53,11 @@
           "type": "boolean",
           "default": false,
           "description": "Show terminal when 'npm run dev' starts"
+        },
+        "autoRunDev.openBrowser": {
+          "type": "boolean",
+          "default": true,
+          "description": "Open browser when 'npm run dev' starts"
         }
       }
     }
